@@ -42,6 +42,34 @@ public class Board {
         setField(Configuration.WIDTH * y + x, m);
     }
 
+    public boolean hasVertical(int i, Mark m) {
+        boolean hasColumn;
+        if (i >= Configuration.WIDTH * Configuration.HEIGHT - 3) {
+            hasColumn = false;
+        } else {
+            int column = 0;
+            for (int j = i; j < Configuration.HEIGHT * Configuration.WIDTH; j+= Configuration.WIDTH) {
+                if (getField(j) == m) {
+                    column++;
+                } else {
+                    break;
+                }
+            }
+            if (column > 3) {
+                hasColumn = true;
+            } else {
+                hasColumn = false;
+            }
+        }
+        return hasColumn;
+    }
+
+    public boolean hasHorizontal(int i, Mark m) {
+        boolean hasRow;
+
+        return false;
+    }
+
     /**
      * Gives a representation of the board. This is the board when empty:
      +----+----+----+----+----+----+----+   +----+----+----+----+----+----+----+
