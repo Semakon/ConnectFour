@@ -11,13 +11,13 @@ public class BoardTest {
 
     public static void main(String[] args) {
         Board board = new Board(new Player("Player 1", Mark.XX), new Player("Player 2", Mark.OO));
-        board.setField(38, Mark.XX);
-        board.setField(31, Mark.XX);
-        board.setField(24, Mark.XX);
-        board.setField(17, Mark.XX);
+        board.setField(7, Mark.XX);
+        board.setField(8, Mark.XX);
+        board.setField(9, Mark.XX);
         board.setField(10, Mark.XX);
+        board.setField(6, Mark.XX);
         System.out.println(board.toString());
-        System.out.println(board.hasVertical(10, Mark.XX));
+        System.out.println(board.hasHorizontal(6, Mark.XX));
     }
 
 }

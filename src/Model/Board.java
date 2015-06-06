@@ -65,9 +65,31 @@ public class Board {
     }
 
     public boolean hasHorizontal(int i, Mark m) {
+        assert 0 <= i && i < Configuration.WIDTH * Configuration.HEIGHT;
         boolean hasRow;
-
-        return false;
+        int row = 0;
+        for (int left = i; left >= 0; left--) {
+            if (left % Configuration.WIDTH > 0 && getField(left) == m) {
+                row++;
+            } else if (left % Configuration.WIDTH == 0 && getField(left) == m) {
+                row++;
+                break;
+            } else {
+                break;
+            }
+        }
+        for (int right = i; right < Configuration.WIDTH * Configuration.HEIGHT; right++) {
+            if (right % Configuration.WIDTH < Configuration.WIDTH - 1 && getField(right) == m) {
+                row++;
+            } else if (right % Configuration.WIDTH == Configuration.WIDTH - 1 && getField(right) == m) {
+                row++;
+                break;
+            } else {
+                break;
+            }
+        }
+        hasRow = row >= 5;
+        return hasRow;
     }
 
     /**
